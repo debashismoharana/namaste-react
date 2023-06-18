@@ -1,0 +1,22 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "Namaste React: Zero to Hero",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/debashismoharana/namaste-react.git"
+  },
+  "author": "Debashis Moharana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/debashismoharana/namaste-react/issues"
+  },
+  "homepage": "https://github.com/debashismoharana/namaste-react#readme",
+  "devDependencies": {
+    "parcel": "^2.9.2"
+  }
+}
