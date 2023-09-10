@@ -1,19 +1,95 @@
-import React from 'react';
-import ReactDOM from'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-const heading = React.createElement(
-    "div",
-    { id: "parent" },
-    React.createElement(
-        "div",
-        { id: "child" },
-        [React.createElement("h1", {}, "I am a h1 tag"),
-        React.createElement("h2", {}, "I am a h2 tag")]),
-    React.createElement(
-        "div",
-        { id: "child2" },
-        [React.createElement("h1", {}, "I am a h1 tag"),
-        React.createElement("h2", {}, "I am a h2 tag")])
-);
+const HeaderComponent = () => {
+  return (
+    <div className="header">
+      <div className="logo-container">
+        <div className="logo">
+          <img
+            className="logo-icon"
+            src="https://www.pngkit.com/png/detail/260-2601788_green-leaf-restaurant-logo.png"
+            alt="Green Leaf Restaurant"
+          />
+        </div>
+      </div>
+      <div className="nav-menu">
+        <ul>
+          <li>Home</li>
+          <li>About Us</li>
+          <li>Contact Us</li>
+          <li>Cart</li>
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+const RestaurantCard = () => {
+  return (
+    <div className="rest-card">
+      <img
+        className="card-image"
+        src="https://images.creativemarket.com/0.1.0/ps/1391484/580/386/m2/fpnw/wm1/preview-.jpg?1466669268&s=91ad59ab1814dfd751860e629b8b4e8d"
+        alt="food item"
+      />
+    </div>
+  );
+};
+
+const BodyContainer = () => {
+  return (
+    <div className="body">
+      <div className="search-container">
+        <input className="search-input" placeholder="Search" />
+      </div>
+      <div className="rest-card-container">
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+      </div>
+    </div>
+  );
+};
+
+const FooterComponent = () => {
+  return (
+    <div className="footer">
+      <div className="copyright">&copy; Copyright Debashis Moharana 2023</div>
+    </div>
+  );
+};
+
+const AppLayout = () => {
+  return (
+    <div className="app">
+      <HeaderComponent />
+      <BodyContainer />
+      <FooterComponent />
+    </div>
+  );
+};
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(heading);
+root.render(<AppLayout />);
