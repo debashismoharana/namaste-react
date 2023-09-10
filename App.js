@@ -33,6 +33,10 @@ const RestaurantCard = () => {
         src="https://images.creativemarket.com/0.1.0/ps/1391484/580/386/m2/fpnw/wm1/preview-.jpg?1466669268&s=91ad59ab1814dfd751860e629b8b4e8d"
         alt="food item"
       />
+      <div>Name: Khana Khazana</div>
+      <div>Indian, Italian, Chinese</div>
+      <div>Rating: ⭐️⭐️⭐️⭐️⭐️</div>
+      <div>ETA: 30 mins</div>
     </div>
   );
 };
@@ -76,7 +80,7 @@ const BodyContainer = () => {
 const FooterComponent = () => {
   return (
     <div className="footer">
-      <div className="copyright">&copy; Copyright Debashis Moharana 2023</div>
+      <div className="copyright">&copy; Copyright Debashis Moharana {new Date().getFullYear()}</div>
     </div>
   );
 };

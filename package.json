@@ -4,7 +4,11 @@
   "description": "Namaste React: Zero to Hero",
   "main": "App.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "npx parcel index.html",
+    "build": "npx parcel build index.html",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -15,8 +19,9 @@
   "bugs": {
     "url": "https://github.com/debashismoharana/namaste-react/issues"
   },
-  "homepage": "https://github.com/debashismoharana/namaste-react#readme",
+  "homepage": "https://github.com/debashismoharana/namaste-react",
   "devDependencies": {
+    "gh-pages": "^6.0.0",
     "parcel": "^2.9.2",
     "process": "^0.11.10"
   },
