@@ -1,4 +1,84 @@
-const restaurantList = [
+const restaurantsList = [
+  {
+    info: {
+      id: "16064",
+      name: "KFC",
+      cloudinaryImageId: "56c9ab92bd79745fd152a30fa2525426",
+      locality: "Phoenix Market city",
+      areaName: "Viman Nagar",
+      costForTwo: "₹400 for two",
+      cuisines: ["Burgers", "Biryani", "American", "Snacks", "Fast Food"],
+      avgRating: 3.8,
+      feeDetails: {
+        restaurantId: "16064",
+        fees: [
+          {
+            name: "BASE_DISTANCE",
+            fee: 5400,
+          },
+          {
+            name: "BASE_TIME",
+          },
+          {
+            name: "ANCILLARY_SURGE_FEE",
+          },
+        ],
+        totalFee: 5400,
+      },
+      parentId: "547",
+      avgRatingString: "3.8",
+      totalRatingsString: "10K+",
+      sla: {
+        deliveryTime: 50,
+        lastMileTravel: 3.6,
+        serviceability: "SERVICEABLE",
+        slaString: "50 mins",
+        lastMileTravelString: "3.6 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2023-09-16 22:30:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "20% OFF",
+        subHeader: "UPTO ₹50",
+      },
+      loyaltyDiscoverPresentationInfo: {
+        logoCtx: {
+          text: "BENEFITS",
+          logo: "v1634558776/swiggy_one/OneLogo_3x.png",
+        },
+        freedelMessage: "FREE DELIVERY",
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+    },
+    analytics: {},
+    cta: {
+      link: "https://www.swiggy.com/restaurants/kfc-phoenix-market-city-viman-nagar-pune-16064",
+      type: "WEBLINK",
+    },
+  },
   {
     info: {
       id: "155427",
@@ -768,86 +848,6 @@ const restaurantList = [
     analytics: {},
     cta: {
       link: "https://www.swiggy.com/restaurants/eatfit-digambar-nagar-viman-nagar-pune-522739",
-      type: "WEBLINK",
-    },
-  },
-  {
-    info: {
-      id: "16064",
-      name: "KFC",
-      cloudinaryImageId: "56c9ab92bd79745fd152a30fa2525426",
-      locality: "Phoenix Market city",
-      areaName: "Viman Nagar",
-      costForTwo: "₹400 for two",
-      cuisines: ["Burgers", "Biryani", "American", "Snacks", "Fast Food"],
-      avgRating: 3.8,
-      feeDetails: {
-        restaurantId: "16064",
-        fees: [
-          {
-            name: "BASE_DISTANCE",
-            fee: 5400,
-          },
-          {
-            name: "BASE_TIME",
-          },
-          {
-            name: "ANCILLARY_SURGE_FEE",
-          },
-        ],
-        totalFee: 5400,
-      },
-      parentId: "547",
-      avgRatingString: "3.8",
-      totalRatingsString: "10K+",
-      sla: {
-        deliveryTime: 50,
-        lastMileTravel: 3.6,
-        serviceability: "SERVICEABLE",
-        slaString: "50 mins",
-        lastMileTravelString: "3.6 km",
-        iconType: "ICON_TYPE_EMPTY",
-      },
-      availability: {
-        nextCloseTime: "2023-09-16 22:30:00",
-        opened: true,
-      },
-      badges: {},
-      isOpen: true,
-      type: "F",
-      badgesV2: {
-        entityBadges: {
-          imageBased: {},
-          textBased: {},
-          textExtendedBadges: {},
-        },
-      },
-      aggregatedDiscountInfoV3: {
-        header: "20% OFF",
-        subHeader: "UPTO ₹50",
-      },
-      loyaltyDiscoverPresentationInfo: {
-        logoCtx: {
-          text: "BENEFITS",
-          logo: "v1634558776/swiggy_one/OneLogo_3x.png",
-        },
-        freedelMessage: "FREE DELIVERY",
-      },
-      differentiatedUi: {
-        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-        differentiatedUiMediaDetails: {
-          mediaType: "ADS_MEDIA_ENUM_IMAGE",
-          lottie: {},
-          video: {},
-        },
-      },
-      reviewsSummary: {},
-      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-      restaurantOfferPresentationInfo: {},
-    },
-    analytics: {},
-    cta: {
-      link: "https://www.swiggy.com/restaurants/kfc-phoenix-market-city-viman-nagar-pune-16064",
       type: "WEBLINK",
     },
   },
@@ -1724,4 +1724,4 @@ const restaurantList = [
   },
 ];
 
-export default restaurantList;
+export default restaurantsList;
