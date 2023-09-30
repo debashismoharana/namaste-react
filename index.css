@@ -22,17 +22,37 @@
   margin: 10px;
 }
 
+.filters{
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+}
+
+.filter-btn {
+  margin: 10px;
+  height: 30px;
+  height: inherit;
+}
+
+.top-rated, .nearby, .budget {
+  height: inherit;
+  margin: 0 10px;
+}
 .search-container {
   border: 1px solid #ccc;
-  margin: 10px 0;
+  margin: 10px;
   height: 30px;
 }
 
 .search-input {
   height: -webkit-fill-available;
-  width: -webkit-fill-available;
   border: none;
   padding: 0 10px;
+}
+
+.search-button {
+  height: inherit;
 }
 
 .rest-card-container {
