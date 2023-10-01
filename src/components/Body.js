@@ -16,14 +16,13 @@ const Body = () => {
   const getRestaurantData = async () => {
     const data = await fetch(SWIGGY_RES_LIST_URL);
     const restaurantsData = await data.json();
-    setRestaurantsList(
-      restaurantsData.data.cards[1].card.card.gridElements.infoWithStyle
-        .restaurants
-    );
-    setfilteredRestaurantsList(
-      restaurantsData.data.cards[1].card.card.gridElements.infoWithStyle
-        .restaurants
-    );
+    resListData =
+      restaurantsData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants ||
+      restaurantsData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
+    setRestaurantsList(resListData);
+    setfilteredRestaurantsList(resListData);
   };
 
   const searchRestaurants = () => {
@@ -86,6 +85,7 @@ const Body = () => {
         {filteredRestaurantsList.map((restaurant) => {
           return (
             <Link
+              className="link"
               key={restaurant.info.id}
               to={"/restaurants/" + restaurant.info.id}>
               <RestaurantCard resData={restaurant} />

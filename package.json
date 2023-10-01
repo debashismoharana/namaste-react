@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "start": "npx parcel index.html",
-    "build": "parcel build ./src/App.js"
+    "build": "parcel build ./src/App.js",
+    "clean": "rm -rf node_modules && rm -rf package-lock.json && npm i"
   },
   "repository": {
     "type": "git",

@@ -12,7 +12,8 @@
   border: 1px solid #ccc;
 }
 
-.nav-menu, .nav-menu > ul{
+.nav-menu,
+.nav-menu > ul {
   display: flex;
   margin-right: 20px;
 }
@@ -22,7 +23,13 @@
   margin: 10px;
 }
 
-.filters{
+.link {
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+.filters {
   margin: 10px 0;
   display: flex;
   justify-content: space-between;
@@ -35,10 +42,13 @@
   height: inherit;
 }
 
-.top-rated, .nearby, .budget {
+.top-rated,
+.nearby,
+.budget {
   height: inherit;
   margin: 0 10px;
 }
+
 .search-container {
   border: 1px solid #ccc;
   margin: 10px;
