@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../common/assets/logo.gif";
+import logo from "../common/assets/icons/logo.gif";
 
 const Header = () => {
   let [btnText, setBtnText] = useState("Login");
