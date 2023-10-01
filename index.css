@@ -74,7 +74,6 @@ body {
   flex-wrap: wrap;
   width: 100%;
   padding: 5px 0;
-  background-color: antiquewhite;
 }
 
 .rest-card {
@@ -83,6 +82,7 @@ body {
   border: 1px solid #ccc;
   padding: 10px;
   margin: 5px 5px;
+  border-radius: 3%;
 }
 
 .rest-card:hover {
@@ -93,9 +93,11 @@ body {
 }
 
 .card-image {
-  width: 100%;
+  width: 107%;
   height: 200px;
   object-fit: cover;
+  border-radius: 3%;
+  margin: -10px;
 }
 
 .restaurant-details {
