@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { LOGO_URL } from "../common/constants";
 import { Link } from "react-router-dom";
+import logo from "../common/assets/logo.gif";
 
 const Header = () => {
   let [btnText, setBtnText] = useState("Login");
@@ -16,7 +16,7 @@ const Header = () => {
           <div className="logo">
             <img
               className="logo-icon"
-              src={LOGO_URL}
+              src={logo}
               alt="Green Leaf Restaurant"
             />
           </div>
