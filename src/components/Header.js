@@ -11,15 +11,17 @@ const Header = () => {
 
   return (
     <div className="header">
-      <div className="logo-container">
-        <div className="logo">
-          <img
-            className="logo-icon"
-            src={LOGO_URL}
-            alt="Green Leaf Restaurant"
-          />
+      <Link className="link" to="/">
+        <div className="logo-container">
+          <div className="logo">
+            <img
+              className="logo-icon"
+              src={LOGO_URL}
+              alt="Green Leaf Restaurant"
+            />
+          </div>
         </div>
-      </div>
+      </Link>
       <div className="nav-menu">
         <ul>
           <li>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import { Link } from "react-router-dom";
 import { SWIGGY_RES_LIST_URL } from "../common/constants";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [restaurantsList, setRestaurantsList] = useState([]);
@@ -54,7 +55,9 @@ const Body = () => {
     setfilteredRestaurantsList(filteredresList);
   };
 
-  return (
+  return !restaurantsList.length ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filters">
         <div className="filter-btn">
