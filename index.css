@@ -145,6 +145,30 @@ hr {
   border-bottom: 1px dashed #ccc;
 }
 
+.people-container {
+  display: flex;
+}
+
+.people-card {
+  height: 300px;
+  width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 5% 20%;
+  padding: 20px;
+  margin: 20px;
+}
+
+.github-avatar {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.vote-btn {
+  border: none;
+  background: none;
+}
+
 .footer {
   width: 100%;
   height: 30px;
