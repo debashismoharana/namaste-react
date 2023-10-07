@@ -14,11 +14,7 @@ const Header = () => {
       <Link className="link" to="/">
         <div className="logo-container">
           <div className="logo">
-            <img
-              className="logo-icon"
-              src={logo}
-              alt="Green Leaf Restaurant"
-            />
+            <img className="logo-icon" src={logo} alt="Green Leaf Restaurant" />
           </div>
         </div>
       </Link>
@@ -27,6 +23,11 @@ const Header = () => {
           <li>
             <Link className="link" to="/">
               Home
+            </Link>
+          </li>
+          <li>
+            <Link className="link" to="/bazaar">
+              Bazaar
             </Link>
           </li>
           <li>

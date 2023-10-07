@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
+import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { SWIGGY_RES_LIST_URL } from "../common/constants";
-import Shimmer from "./Shimmer";
+import useNetworkStatus from "../common/useNetworkStatus";
 
 const Body = () => {
   const [restaurantsList, setRestaurantsList] = useState([]);
   const [filteredRestaurantsList, setfilteredRestaurantsList] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const networkStatus = useNetworkStatus();
 
   useEffect(() => {
     getRestaurantData();
@@ -55,7 +57,8 @@ const Body = () => {
     setfilteredRestaurantsList(filteredresList);
   };
 
-  return !restaurantsList.length ? (
+  if (!networkStatus) return <h1>Check your internet connection !!!</h1>;
+  return !restaurantsList?.length ? (
     <Shimmer />
   ) : (
     <div className="body">
