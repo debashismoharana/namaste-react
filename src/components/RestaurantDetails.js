@@ -3,7 +3,7 @@ import useRestaurantDetails from "../utils/useRestaurantDetails";
 
 const RestaurantDetails = () => {
   const { resId } = useParams();
-  useRestaurantDetails(resId);
+  const { restaurantDetails, menuItems } = useRestaurantDetails(resId);
 
   return (
     <div className="restaurant-details">
