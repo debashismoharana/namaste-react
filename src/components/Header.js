@@ -8,12 +8,12 @@ const Header = () => {
   const networkStatus = useNetworkStatus();
 
   return (
-    <div className="header-component">
+    <div className="flex justify-between items-center bg-pink-50 shadow-lg p-2">
       <Link to="/">
-        <img alt="logo" className="logo" src={LOGO_URL} />
+        <img alt="logo" className="w-40" src={LOGO_URL} />
       </Link>
-      <div className="nav-items">
-        <ul>
+      <div className="flex">
+        <ul className="flex items-center space-x-4 mr-4">
           <li>{networkStatus ? "🟢" : "🔴"}</li>
           <li>
             <Link to="/">Home</Link>

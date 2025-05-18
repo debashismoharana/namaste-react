@@ -28,8 +28,9 @@ const Body = () => {
 
   return (
     <div className="body-component">
-      <div className="search-container">
+      <div className="m-2 flex justify-between">
         <input
+          className="w-[95%] border border-grey-300 p-2"
           type="search"
           placeholder="Search"
           value={searchText}
@@ -38,7 +39,7 @@ const Body = () => {
           }}
         />
         <button
-          className="btn searchBtn"
+          className="bg-blue-300 p-3 rounded-sm"
           onClick={() => {
             const searchedRestaurant = restaurantsList.filter((restaurant) =>
               restaurant.info.name
@@ -51,9 +52,9 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="filters">
+      <div className="flex justify-start px-3">
         <button
-          className="btn filter-btn"
+          className="bg-blue-300 p-2 rounded-sm"
           onClick={() => {
             const filteredResList = restaurantsList.filter(
               (restaurant) => restaurant.info.avgRating >= 4.5
@@ -67,7 +68,7 @@ const Body = () => {
       {!networkStatus ? (
         <h1>Please check your internet connection</h1>
       ) : (
-        <div className="restaurants-container">
+        <div className="flex flex-wrap w-full">
           {restaurantsList.length === 0 ? (
             <Shimmer />
           ) : (

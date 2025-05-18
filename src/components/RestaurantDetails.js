@@ -1,4 +1,5 @@
 import { useParams } from "react-router";
+import useRestaurantDetails from "../utils/useRestaurantDetails";
 
 const RestaurantDetails = () => {
   const { resId } = useParams();

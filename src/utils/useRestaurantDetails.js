@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
-
-const [restaurantDetails, setRestaurantDetails] = useState(null);
-const [menuItems, setMenuItems] = useState(null);
+import { RESTAURANT_DETAILS_API } from "./constants";
 
 const useRestaurantDetails = async (resId) => {
+  const [restaurantDetails, setRestaurantDetails] = useState(null);
+  const [menuItems, setMenuItems] = useState(null);
   useEffect(() => {
     fetchRestaurantDetails();
   }, []);
 
-  fetchRestaurantDetails = async () => {
+  const fetchRestaurantDetails = async () => {
     const data = await fetch(RESTAURANT_DETAILS_API + resId);
     const json = await data.json();
     setRestaurantDetails(json.data?.cards[2]?.card?.card?.info);
