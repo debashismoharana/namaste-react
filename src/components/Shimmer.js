@@ -1,20 +1,14 @@
 const Shimmer = () => {
   return (
-    <div className="shimmer">
-      <div className="rest-card-container">
-        <div className="rest-card">Loading...</div>
-        <div className="rest-card">Loading...</div>
-        <div className="rest-card">Loading...</div>
-        <div className="rest-card">Loading...</div>
-        <div className="rest-card">Loading...</div>
-        <div className="rest-card">Loading...</div>
-        <div className="rest-card">Loading...</div>
-        <div className="rest-card">Loading...</div>
-        <div className="rest-card">Loading...</div>
-        <div className="rest-card">Loading...</div>
-        <div className="rest-card">Loading...</div>
-        <div className="rest-card">Loading...</div>
-      </div>
+    <div className="shimmer-container">
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
+      <div className="shimmer-card"></div>
     </div>
   );
 };

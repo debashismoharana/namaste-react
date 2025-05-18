@@ -1,39 +1,30 @@
-import { RES_LOGO_URL } from "../common/constants";
+import { IMG_CDN_URL } from "../utils/constants";
 
 const RestaurantCard = (props) => {
   const {
-    cloudinaryImageId,
     name,
-    areaName,
-    cuisines,
     avgRating,
+    totalRatingsString,
+    cuisines,
     sla,
     costForTwo,
-    totalRatingsString,
+    cloudinaryImageId,
   } = props.resData.info;
+
   return (
-    <div className="rest-card">
+    <div className="restaurant-card">
       <img
-        className="card-image"
-        src={RES_LOGO_URL + cloudinaryImageId}
-        alt="food item"
+        className="res-image"
+        alt="restaurant"
+        src={IMG_CDN_URL + cloudinaryImageId}
       />
-      <h4>
-        {name} <br />
-        📍{areaName}
-      </h4>
-      <div>
-        <b>Cuisines:</b> {cuisines.join(", ")}
+      <div className="res-name">{name}</div>
+      <div className="res-rating">
+        Rating: {avgRating} ({totalRatingsString})
       </div>
-      <div>
-        <b>Rating:</b> ⭐️ {avgRating} ({totalRatingsString} Ratings)
-      </div>
-      <div>
-        <b>ETA:</b> {sla.deliveryTime} mins
-      </div>
-      <div>
-        <b>Cost:</b> {costForTwo}
-      </div>
+      <div className="res-cuisines">{cuisines.join(", ")}</div>
+      <div className="res-delivery-time">Time: {sla?.deliveryTime} Minutes</div>
+      <div className="res-cost">{costForTwo}</div>
     </div>
   );
 };

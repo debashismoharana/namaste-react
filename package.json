@@ -2,7 +2,6 @@
   "name": "namaste-react",
   "version": "1.0.0",
   "description": "Namaste React: Zero to Hero",
-  "main": "App.js",
   "scripts": {
     "test": "jest",
     "start": "npx parcel index.html",
@@ -20,14 +19,15 @@
   },
   "homepage": "https://github.com/debashismoharana/namaste-react",
   "devDependencies": {
-    "parcel": "^2.9.2",
-    "process": "^0.11.10"
+    "parcel": "^2.14.4",
+    "postcss": "^8.5.3",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.17"
   },
   "dependencies": {
-    "@swc/helpers": "^0.5.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.16.0"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router": "^7.5.3"
   },
   "browserslist": [
     "last 2 versions"

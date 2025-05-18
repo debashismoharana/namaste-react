@@ -1,68 +1,27 @@
-import { useParams } from "react-router-dom";
-import { RES_LOGO_URL } from "../common/constants";
-import useRestaurantMenu from "../common/useRestaurantMenu";
-import Shimmer from "./Shimmer";
+import { useParams } from "react-router";
 
 const RestaurantDetails = () => {
-  const { id } = useParams();
-  const resDetails = useRestaurantMenu(id);
-
-  if (resDetails === null) return <Shimmer />;
-
-  const {
-    name,
-    cuisines,
-    areaName,
-    city,
-    avgRating,
-    totalRatingsString,
-    costForTwoMessage,
-  } = resDetails?.data?.cards[0]?.card?.card?.info;
-
-  const { itemCards } =
-    resDetails?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
-      ?.card?.card;
+  const { resId } = useParams();
+  useRestaurantDetails(resId);
 
   return (
     <div className="restaurant-details">
-      <h1>{name}</h1>
-      <div className="res-more-details">
-        <div>
-          <div>{cuisines.join(", ")}</div>
-          <div>
-            {areaName}, {city}
-          </div>
-        </div>
-        <div>
-          <div>
-            ⭐️{avgRating} ({totalRatingsString})
-          </div>
-          <div>Cost: {costForTwoMessage}</div>
-        </div>
-      </div>
-      <hr />
-      <div className="offers">Offers and Coupons</div>
-      <hr />
-      <div className="menu-items">
-        {itemCards?.map((item) => {
-          const itemInfo = item.card.info;
+      <h1>{restaurantDetails?.name}</h1>
+      <h4>{restaurantDetails?.cuisines.join(", ")}</h4>
+      <ul className="menu-items">
+        {menuItems?.map((item) => {
           return (
-            <div key={itemInfo?.id} className="menu-item">
-              <div className="item-details">
-                <div>{itemInfo?.name}</div>
-                <div>₹ {itemInfo?.price / 100}</div>
-                <div className="item-description">{itemInfo?.description}</div>
-              </div>
-              <div>
-                <img
-                  className="item-image"
-                  src={RES_LOGO_URL + itemInfo?.imageId}
-                />
-              </div>
-            </div>
+            <li key={item?.card?.info?.id}>
+              <p>
+                {item?.card?.info?.name} - ₹
+                {item?.card?.info?.price / 100 ||
+                  item?.card?.info?.defaultPrice / 100}
+              </p>
+              {item?.card?.info?.description}
+            </li>
           );
         })}
-      </div>
+      </ul>
     </div>
   );
 };

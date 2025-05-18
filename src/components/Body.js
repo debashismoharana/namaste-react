@@ -1,104 +1,89 @@
-import { useEffect, useState } from "react";
-import RestaurantCard from "./RestaurantCard";
+import { useState, useEffect } from "react";
+import { Link } from "react-router";
+
+import { RESTAURANTS_API } from "../utils/constants";
+import RestaurantCard from "../components/RestaurantCard";
 import Shimmer from "./Shimmer";
-import { Link } from "react-router-dom";
-import { SWIGGY_RES_LIST_URL } from "../common/constants";
-import useNetworkStatus from "../common/useNetworkStatus";
+import useNetworkStatus from "../utils/useNetworkStatus";
 
 const Body = () => {
   const [restaurantsList, setRestaurantsList] = useState([]);
-  const [filteredRestaurantsList, setfilteredRestaurantsList] = useState([]);
+  const [filteredRestaurantList, setFilteredRestaurantList] = useState([]);
   const [searchText, setSearchText] = useState("");
   const networkStatus = useNetworkStatus();
 
   useEffect(() => {
-    getRestaurantData();
+    fetchRestaurantData();
   }, []);
 
-  // function to get the restaurant data from swiggy's live API and set it in restaurantsList
-  const getRestaurantData = async () => {
-    const data = await fetch(SWIGGY_RES_LIST_URL);
-    const restaurantsData = await data.json();
-    resListData =
-      restaurantsData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants ||
-      restaurantsData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+  const fetchRestaurantData = async () => {
+    const response = await fetch(RESTAURANTS_API);
+    const json = await response.json();
+    const restaurants =
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
-    setRestaurantsList(resListData);
-    setfilteredRestaurantsList(resListData);
+    setRestaurantsList(restaurants);
+    setFilteredRestaurantList(restaurants);
   };
 
-  const searchRestaurants = () => {
-    const filteredresList = restaurantsList.filter((restaurant) =>
-      restaurant.info.name.toLowerCase().includes(searchText.toLowerCase())
-    );
-    setfilteredRestaurantsList(filteredresList);
-  };
-
-  const findTopRatedRestaurants = () => {
-    const filteredresList = restaurantsList.filter(
-      (restaurant) => restaurant.info.avgRating >= 4
-    );
-    setfilteredRestaurantsList(filteredresList);
-  };
-
-  const findNearbyRestaurants = () => {
-    const filteredresList = restaurantsList.filter(
-      (restaurant) => restaurant.info.sla.deliveryTime <= 30
-    );
-    setfilteredRestaurantsList(filteredresList);
-  };
-
-  const findBudgetRestaurants = () => {
-    const filteredresList = restaurantsList.filter(
-      (restaurant) =>
-        parseInt(restaurant.info.costForTwo.split(" ")[0].substring(1)) <= 300
-    );
-    setfilteredRestaurantsList(filteredresList);
-  };
-
-  if (!networkStatus) return <h1>Check your internet connection !!!</h1>;
-  return !restaurantsList?.length ? (
-    <Shimmer />
-  ) : (
-    <div className="body">
+  return (
+    <div className="body-component">
+      <div className="search-container">
+        <input
+          type="search"
+          placeholder="Search"
+          value={searchText}
+          onChange={(e) => {
+            setSearchText(e?.target?.value);
+          }}
+        />
+        <button
+          className="btn searchBtn"
+          onClick={() => {
+            const searchedRestaurant = restaurantsList.filter((restaurant) =>
+              restaurant.info.name
+                .toLowerCase()
+                .includes(searchText.toLowerCase())
+            );
+            setFilteredRestaurantList(searchedRestaurant);
+          }}
+        >
+          Search
+        </button>
+      </div>
       <div className="filters">
-        <div className="filter-btn">
-          <button className="top-rated" onClick={findTopRatedRestaurants}>
-            Top Rated Restaurants
-          </button>
-          <button className="nearby" onClick={findNearbyRestaurants}>
-            Nearby Restaurants
-          </button>
-          <button className="budget" onClick={findBudgetRestaurants}>
-            Budget Restaurants
-          </button>
-        </div>
-        <div className="search-container">
-          <input
-            className="search-input"
-            placeholder="find a restaurant"
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
-          />
-          <button className="search-button" onClick={searchRestaurants}>
-            Search
-          </button>
-        </div>
+        <button
+          className="btn filter-btn"
+          onClick={() => {
+            const filteredResList = restaurantsList.filter(
+              (restaurant) => restaurant.info.avgRating >= 4.5
+            );
+            setFilteredRestaurantList(filteredResList);
+          }}
+        >
+          Top Rated Restaurants
+        </button>
       </div>
-
-      <div className="rest-card-container">
-        {filteredRestaurantsList.map((restaurant) => {
-          return (
-            <Link
-              className="link"
-              key={restaurant.info.id}
-              to={"/restaurants/" + restaurant.info.id}>
-              <RestaurantCard resData={restaurant} />
-            </Link>
-          );
-        })}
-      </div>
+      {!networkStatus ? (
+        <h1>Please check your internet connection</h1>
+      ) : (
+        <div className="restaurants-container">
+          {restaurantsList.length === 0 ? (
+            <Shimmer />
+          ) : (
+            filteredRestaurantList.map((restaurant) => {
+              return (
+                <Link
+                  to={"/restaurants/" + restaurant.info.id}
+                  key={restaurant.info.id}
+                >
+                  <RestaurantCard resData={restaurant} />
+                </Link>
+              );
+            })
+          )}
+        </div>
+      )}
     </div>
   );
 };

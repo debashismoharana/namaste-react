@@ -1,49 +1,40 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import logo from "../common/assets/icons/logo.gif";
+import { LOGO_URL } from "../utils/constants";
+import { Link } from "react-router";
+import useNetworkStatus from "../utils/useNetworkStatus";
 
 const Header = () => {
-  let [btnText, setBtnText] = useState("Login");
-
-  toggleBtnText = () => {
-    setBtnText(btnText == "Login" ? "Logout" : "Login");
-  };
+  const [login, setLogin] = useState("Login");
+  const networkStatus = useNetworkStatus();
 
   return (
-    <div className="header">
-      <Link className="link" to="/">
-        <div className="logo-container">
-          <div className="logo">
-            <img className="logo-icon" src={logo} alt="Green Leaf Restaurant" />
-          </div>
-        </div>
+    <div className="header-component">
+      <Link to="/">
+        <img alt="logo" className="logo" src={LOGO_URL} />
       </Link>
-      <div className="nav-menu">
+      <div className="nav-items">
         <ul>
+          <li>{networkStatus ? "🟢" : "🔴"}</li>
           <li>
-            <Link className="link" to="/">
-              Home
-            </Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link className="link" to="/bazaar">
-              Bazaar
-            </Link>
+            <Link to="/about">About</Link>
           </li>
           <li>
-            <Link className="link" to="/about">
-              About Us
-            </Link>
+            <Link to="/contact">Contact</Link>
           </li>
           <li>
-            <Link className="link" to="/contact">
-              Contact Us
-            </Link>
+            <Link>Cart</Link>
           </li>
-          <li>Cart</li>
-          <li>
-            <button onClick={toggleBtnText}>{btnText}</button>
-          </li>
+          <button
+            className="btn loginBtn"
+            onClick={() => {
+              setLogin(login === "Login" ? "Logout" : "Login");
+            }}
+          >
+            {login}
+          </button>
         </ul>
       </div>
     </div>

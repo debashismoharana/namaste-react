@@ -1,13 +1,15 @@
-import People from "./People";
-import PeopleClass from "./PeopleClass";
+// import User from "./User";
+import UserClass from "./UserClass";
 
 const About = () => {
   return (
-    <div>
+    <div className="about">
       <h1>About Us</h1>
-      <div className="people-container">
-        <People />
-        {/* <PeopleClass name="Debashis Moharana" location="Pune, Maharashtra" /> */}
+      {/* <User name="Debashis function" city="Bhubaneswar" /> */}
+      <div className="user-cards-container">
+        <UserClass username="debashismoharana" />
+        <UserClass username="rohanspaceiq" />
+        <UserClass username="undertakingyou" />
       </div>
     </div>
   );
