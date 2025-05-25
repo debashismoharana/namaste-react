@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router";
 
 import { RESTAURANTS_API } from "../utils/constants";
-import RestaurantCard from "../components/RestaurantCard";
+import RestaurantCard, { withNewLabel } from "../components/RestaurantCard";
 import Shimmer from "./Shimmer";
 import useNetworkStatus from "../utils/useNetworkStatus";
 
@@ -11,6 +11,7 @@ const Body = () => {
   const [filteredRestaurantList, setFilteredRestaurantList] = useState([]);
   const [searchText, setSearchText] = useState("");
   const networkStatus = useNetworkStatus();
+  const NewRestaurantCard = withNewLabel(RestaurantCard);
 
   useEffect(() => {
     fetchRestaurantData();
@@ -78,7 +79,11 @@ const Body = () => {
                   to={"/restaurants/" + restaurant.info.id}
                   key={restaurant.info.id}
                 >
-                  <RestaurantCard resData={restaurant} />
+                  {restaurant.info.isNewlyOnboarded ? (
+                    <NewRestaurantCard resData={restaurant} />
+                  ) : (
+                    <RestaurantCard resData={restaurant} />
+                  )}
                 </Link>
               );
             })

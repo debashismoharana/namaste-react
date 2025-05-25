@@ -29,4 +29,17 @@ const RestaurantCard = (props) => {
   );
 };
 
+export const withNewLabel = (RestaurantCard) => {
+  return (resData) => {
+    return (
+      <div>
+        <label className="absolute mx-2 px-2 bg-slate-600 text-white">
+          New
+        </label>
+        <RestaurantCard {...resData} />
+      </div>
+    );
+  };
+};
+
 export default RestaurantCard;
