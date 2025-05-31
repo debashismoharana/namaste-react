@@ -31,7 +31,7 @@ const Body = () => {
     <div className="body-component">
       <div className="m-2 flex justify-between">
         <input
-          className="w-[95%] border border-grey-300 p-2"
+          className="w-[95%] border border-grey-300 p-1"
           type="search"
           placeholder="Search"
           value={searchText}
@@ -40,7 +40,7 @@ const Body = () => {
           }}
         />
         <button
-          className="bg-blue-300 p-3 rounded-sm"
+          className="bg-blue-300 px-3 py-1 rounded-sm"
           onClick={() => {
             const searchedRestaurant = restaurantsList.filter((restaurant) =>
               restaurant.info.name
@@ -53,7 +53,7 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="flex justify-start px-3">
+      <div className="flex justify-start px-3 py-1 ">
         <button
           className="bg-blue-300 p-2 rounded-sm"
           onClick={() => {
@@ -70,10 +70,10 @@ const Body = () => {
         <h1>Please check your internet connection</h1>
       ) : (
         <div className="flex flex-wrap w-full">
-          {restaurantsList.length === 0 ? (
+          {restaurantsList?.length === 0 ? (
             <Shimmer />
           ) : (
-            filteredRestaurantList.map((restaurant) => {
+            filteredRestaurantList?.map((restaurant) => {
               return (
                 <Link
                   to={"/restaurants/" + restaurant.info.id}

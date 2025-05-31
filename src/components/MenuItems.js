@@ -15,9 +15,11 @@ const MenuItems = ({ items }) => {
               <div>₹{price / 100}</div>
               <p className="text-md">{description}</p>
             </div>
-            <div className="w-2/12">
-              <img className="rounded-md" src={IMG_CDN_URL + imageId} />
-            </div>
+            {imageId && (
+              <div className="w-2/12">
+                <img className="rounded-md" src={IMG_CDN_URL + imageId} />
+              </div>
+            )}
           </div>
         );
       })}

@@ -1,5 +1,5 @@
 export const LOGO_URL =
-  "https://as2.ftcdn.net/jpg/02/75/70/03/1000_F_275700347_09reCCwb7JBxTKiYQXsyri4riMKaHbj8.jpg";
+  "https://www.clipartmax.com/png/middle/356-3563477_families-are-forever-clipart-soul-food-restaurant-logos.png";
 
 export const IMG_CDN_URL =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_250,w_350/";
