@@ -2,10 +2,12 @@ import { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router";
 import useNetworkStatus from "../utils/useNetworkStatus";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [login, setLogin] = useState("Login");
   const networkStatus = useNetworkStatus();
+  const cartItems = useSelector((store) => store.cart.items);
 
   return (
     <div className="flex justify-between items-center bg-pink-50 shadow-lg p-2">
@@ -25,7 +27,9 @@ const Header = () => {
             <Link to="/contact">Contact</Link>
           </li>
           <li>
-            <Link>Cart</Link>
+            <Link to="/cart" className="font-bold">
+              Cart ({cartItems?.length})
+            </Link>
           </li>
           <button
             className="btn loginBtn"
